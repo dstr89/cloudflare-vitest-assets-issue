@@ -1,5 +1,5 @@
 ## Issue running tests
-
+```
 npm run test
 
 > my-first-worker@0.0.0 test
@@ -27,20 +27,27 @@ TypeError: Cannot read properties of undefined (reading 'digest')
  ❯ Miniflare2.#assembleAndUpdateConfig node_modules/miniflare/dist/src/index.js:9940:20
  ❯ Mutex.runWith node_modules/miniflare/dist/src/index.js:3632:16
  ❯ Miniflare2.#waitForReady node_modules/miniflare/dist/src/index.js:10042:5
+```
 
 ## Steps to reproduce
 
 ### Create new project
-npm create cloudflare@latest
+Run `npm create cloudflare@latest`
 
-### Add assets config to wrangler.toml
+### Add assets config
+Additional config in wrangler.toml
+```
 [assets]
 directory = "./public"
 binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 not_found_handling = "none"
+```
 
-### Create a public directory with one file insite
+### Bump Wrangler
+Bumping "wrangler" to the latest version "3.96.0" does not resolve the issue
+
+### Create a public directory with one file
 
 ### Run tests
-npm run test
+Run `npm run test`
